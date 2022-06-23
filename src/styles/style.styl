@@ -1,0 +1,122 @@
+@import './config'
+
+html
+  global-reset()
+  reset-html5()
+
+body
+  overscroll-behavior-y none
+
+#sapper
+  font-family $font_family
+
+  font-size ($fpc)px
+
+  line-height $lh
+
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  -webkit-text-size-adjust 100%
+
+  -webkit-print-color-adjust exact
+
+  font-feature-settings 'palt' 1
+
+  color $font_color_default
+  break_word()
+
+  // min-width 320px
+
+  .display-inline--block
+    display inline-block
+
+  +break_point('pc')
+    .display-none
+      &__pc
+        display none !important
+
+  +break_point('sp')
+    .display-none
+      &__sp
+        display none !important
+
+// #wrapper
+//   position relative
+//   top 0
+//   left 0
+//   z-index 1
+
+a
+  link_style('', '', '', '')
+  &:focus
+    outline none
+
+// input[type="submit"],
+// button,
+// label,
+// select,
+a
+  rollover()
+  &.disabled,
+  &:disabled
+    cursor default
+    opacity 1 !important
+
+button
+  margin 0
+  padding 0
+  background none
+  appearance none
+  line-height inherit
+  border none
+  font-size inherit
+  font-family inherit
+  font-weight inherit
+  outline none
+  color inherit
+  &::-moz-focus-inner
+    border none
+
+input
+  appearance none
+  border-radius 0
+  color inherit
+  &:focus
+    outline none
+
+select,
+input[type="submit"],
+button,
+label
+  color inherit
+  cursor pointer
+
+select
+  appearance none
+  border none
+  outline none
+  background transparent
+
+img,
+svg
+  max-width 100%
+  width 100%
+  height auto
+  vertical-align top
+
+picture
+  max-width 100%
+
+// .c-font
+//   &--noto
+//     font-family "Noto Sans JP"
+
+font_size_responsive('#sapper')
+
+main
+  relative top 0 left 0
+  max-width 56em
+  background-color white
+  padding 2em
+  margin 0 auto
+  box-sizing border-box
