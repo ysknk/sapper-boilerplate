@@ -39,3 +39,5 @@ declare module "*.webp" {
 }
 
 declare module "svelte-image"
+
+declare const window: any
