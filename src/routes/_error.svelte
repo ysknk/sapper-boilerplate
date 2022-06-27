@@ -34,7 +34,6 @@
   p
     | {error.message}
 
-  | {#if dev && error.stack}
-  pre {error.stack}
-  | {/if}
+  +if('dev && error.stack')
+    pre {error.stack}
 </template>
