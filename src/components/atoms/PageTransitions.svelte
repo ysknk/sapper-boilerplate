@@ -25,11 +25,10 @@
 
 <template lang="pug">
   | {#key refresh}
-  //-
-    div(
-      in:fade="{{ delay: 100, duration: 100 }}"
-      out:fade="{{ duration: 100 }}"
-    )
+  //- div(
+  //-   in:fade="{{ delay: 250, duration: 250 }}"
+  //-   out:fade="{{ duration: 250 }}"
+  //- )
   div(in:fadeIn out:fadeOut)
     slot
   | {/key}
