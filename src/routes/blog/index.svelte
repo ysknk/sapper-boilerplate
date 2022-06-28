@@ -21,7 +21,7 @@
   svelte:head
     title Blog
 
-  | {#key post.slug}
+  | {#key location.href}
   div(class="wrapper" in:fadeIn out:fadeOut)
     h1 Recent posts
 
