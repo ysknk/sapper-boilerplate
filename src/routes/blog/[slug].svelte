@@ -14,6 +14,7 @@
 </script>
 
 <script lang="ts">
+  import { fadeIn, fadeOut } from '../../components/atoms/PageFade'
   export let post: { slug: string; title: string, html: any };
 </script>
 
@@ -52,8 +53,11 @@
   svelte:head
     title {post.title}
 
-  h1 {post.title}
+  | {#key post.slug}
+  div(class="wrapper" in:fadeIn out:fadeOut)
+    h1 {post.title}
 
-  div(class="content")
-    | {@html post.html}
+    div(class="content")
+      | {@html post.html}
+  | {/key}
 </template>
