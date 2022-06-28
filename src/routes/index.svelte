@@ -49,5 +49,5 @@
 
   p svelte-image
   //- p: Image(src="/images/successkid.jpg")
-  p: Image(src="/images/successkid.jpg" width="686" height="456")
+  p: Image(src="images/successkid.jpg" width="686" height="456")
 </template>

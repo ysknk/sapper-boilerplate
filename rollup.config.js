@@ -15,9 +15,7 @@ import module from 'module'
 import svelteImage from 'svelte-image'
 import nib from 'nib'
 
-const mode = process.env.NODE_ENV
-const dev = mode === 'development'
-const legacy = !!process.env.SAPPER_LEGACY_BUILD
+import { rootpath, mode, dev, legacy } from './svelte.config.mjs'
 
 const preprocess = [
   svelteImage({}),
@@ -78,7 +76,7 @@ export default {
       }),
       url({
         sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
-        publicPath: '/client/'
+        publicPath: `${rootpath}/client/`
       }),
       resolve({
         browser: true,
@@ -134,7 +132,7 @@ export default {
       }),
       url({
         sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
-        publicPath: '/client/',
+        publicPath: `${rootpath}/client/`,
         emitFiles: false // already emitted by client build
       }),
       resolve({
