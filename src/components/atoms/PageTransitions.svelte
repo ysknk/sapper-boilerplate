@@ -1,24 +1,7 @@
 <script lang="ts">
   /* import { fade } from 'svelte/transition' */
   import { sineOut } from 'svelte/easing'
-
-  let duration: number = 250;
-  let delay: number = duration;
-
-  let delay0: number = 0;
-
-  export const fadeIn = () => ({
-    duration,
-    delay,
-    easing: sineOut,
-    css: (t) => { return `opacity: ${t}` }
-  })
-  export const fadeOut = () => ({
-    duration,
-    delay: delay0,
-    easing: sineOut,
-    css: (t) => { return `opacity: ${t}` }
-  })
+  import { fadeIn, fadeOut } from './PageFade'
 
   export let refresh = ''
 </script>
