@@ -1,4 +1,4 @@
-export const rootpath = '/hoge'
+export const rootpath = ''// ex: /hoge
 
 export const mode = process.env.NODE_ENV
 export const dev = mode === 'development'
