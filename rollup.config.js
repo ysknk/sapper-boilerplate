@@ -12,10 +12,12 @@ import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import module from 'module'
 
+import sapperEnv from 'sapper-environment'
 import svelteImage from 'svelte-image'
 import nib from 'nib'
 
 import { rootpath, mode, dev, legacy } from './svelte.config.mjs'
+console.log(`MODE: 【${mode}】`)
 
 const preprocess = [
   svelteImage({}),
@@ -62,6 +64,7 @@ export default {
       replace({
         preventAssignment: true,
         values:{
+          ...sapperEnv(),
           'process.browser': true,
           'process.env.NODE_ENV': JSON.stringify(mode)
         },
@@ -117,6 +120,7 @@ export default {
       replace({
         preventAssignment: true,
         values:{
+          ...sapperEnv(),
           'process.browser': false,
           'process.env.NODE_ENV': JSON.stringify(mode)
         },

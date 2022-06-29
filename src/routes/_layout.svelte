@@ -33,6 +33,9 @@
   }
 
   onMount(async () => {
+    console.log(`env: ${process.env.SAPPER_APP_ENV}`)
+    console.log(`api: ${process.env.SAPPER_APP_TEST_API}`)
+
     let pathname = window.location.pathname
     info.setSize(getWindowSize())
     info.setScroll(getWindowScroll())
@@ -59,14 +62,18 @@
 </style>
 
 <template lang="pug">
-  | width: {$info.size.width}
-  | height: {$info.size.height}
-  | scrollY: {$info.scroll.y}
-  | scrollX: {$info.scroll.x}
-  | segment {segment}
-  //- | $page.path {$page.path}
-  //- | pagePath {pagePath}
-  //- | { previous }
+  div#test
+    p
+      | width: {$info.size.width}
+      | height: {$info.size.height}
+    p
+      | scrollY: {$info.scroll.y}
+      | scrollX: {$info.scroll.x}
+    p
+      | segment: {segment}
+    p
+      | env: {process.env.SAPPER_APP_ENV}
+      | api: {process.env.SAPPER_APP_TEST_API}
 
   Header({segment})
 
