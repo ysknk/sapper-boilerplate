@@ -6,7 +6,7 @@
     "dev": "sapper dev",
     "build": "sapper build --legacy",
     "_export": "sapper export --legacy",
-    "export": "node svelte.export.mjs",
+    "export": "node sapper.export.mjs",
     "help": "sapper export --help",
     "generate": "npm run export",
     "start": "node __sapper__/build",
