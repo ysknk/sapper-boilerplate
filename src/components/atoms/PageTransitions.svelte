@@ -12,7 +12,7 @@
   //-   in:fade="{{ delay: 250, duration: 250 }}"
   //-   out:fade="{{ duration: 250 }}"
   //- )
-  div(in:fadeIn out:fadeOut)
+  main(in:fadeIn out:fadeOut)
     slot
   | {/key}
 </template>
