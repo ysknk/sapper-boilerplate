@@ -5,6 +5,10 @@ const initialState = store.initialState.info
 
 const createStore = () => {
   const { subscribe, set, update } = writable(initialState)
+  let state
+  subscribe((v) => {
+    state = v
+  })
 
   return {
     subscribe,
