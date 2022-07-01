@@ -11,6 +11,9 @@
 
 <style lang="stylus">
   .c-img
+    :global(.wrapper)
+      line-height 0
+      min-height 0 !important
     :global(img.main)
       height 100%
 </style>
