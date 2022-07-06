@@ -32,9 +32,29 @@
     }
   }
 
+  const isTouch = () => {
+    if ((navigator as any).msPointerEnabled) {
+      return true
+    } else {
+      if ('ontouchstart' in window) {
+        return true
+      }
+      if ('onmousedown' in window) {
+        return false
+      }
+    }
+  }
+
   onMount(async () => {
     console.log(`env: ${process.env.SAPPER_APP_ENV}`)
     console.log(`api: ${process.env.SAPPER_APP_TEST_API}`)
+
+    const html = document.documentElement
+    if (isTouch()) {
+      html.classList.add('device-use-touch')
+    } else {
+      html.classList.add('device-use-mouse')
+    }
 
     let pathname = window.location.pathname
     info.setSize(getWindowSize())
