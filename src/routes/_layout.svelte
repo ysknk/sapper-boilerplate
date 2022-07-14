@@ -45,6 +45,37 @@
     }
   }
 
+  const onscroll = () => {
+    info.setScroll(getWindowScroll())
+  }
+  // const throttlescroll = throttle((() => {
+  //   onscroll()
+  // }), 100)
+  // const debouncescroll = debounce((() => {
+  //   onscroll()
+  // }), 200)
+  const handlescroll = () => {
+    // throttlescroll()
+    // debouncescroll()
+    onscroll()
+  }
+
+  const onresize = () => {
+    info.setSize(getWindowSize())
+    info.setScroll(getWindowScroll())
+  }
+  // const throttleresize = throttle((() => {
+  //   onresize()
+  // }), 100)
+  // const debounceresize = debounce((() => {
+  //   onresize()
+  // }), 200)
+  const handleresize = () => {
+    // throttleresize()
+    // debounceresize()
+    onresize()
+  }
+
   onMount(async () => {
     console.log(`env: ${process.env.SAPPER_APP_ENV}`)
     console.log(`api: ${process.env.SAPPER_APP_TEST_API}`)
@@ -57,17 +88,9 @@
     }
 
     let pathname = window.location.pathname
-    info.setSize(getWindowSize())
-    info.setScroll(getWindowScroll())
 
-    window.addEventListener('resize', (e: Event) => {
-      info.setSize(getWindowSize())
-      info.setScroll(getWindowScroll())
-    }, false)
-
-    window.addEventListener('scroll', (e: Event) => {
-      info.setScroll(getWindowScroll())
-    }, false)
+    onscroll()
+    onresize()
   })
 
   // console.log($page, 'test', pageSegment)
@@ -82,6 +105,8 @@
 </style>
 
 <template lang="pug">
+  svelte:window(on:scroll!="{handlescroll}" on:resize!="{handleresize}")
+
   div#test
     p
       | width: {$info.size.width}
