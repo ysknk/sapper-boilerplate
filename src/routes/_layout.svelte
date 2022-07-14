@@ -45,7 +45,7 @@
     }
   }
 
-  const onscroll = () => {
+  const onScroll = () => {
     info.setScroll(getWindowScroll())
   }
   // const throttlescroll = throttle((() => {
@@ -57,10 +57,10 @@
   const handlescroll = () => {
     // throttlescroll()
     // debouncescroll()
-    onscroll()
+    onScroll()
   }
 
-  const onresize = () => {
+  const onResize = () => {
     info.setSize(getWindowSize())
     info.setScroll(getWindowScroll())
   }
@@ -73,7 +73,7 @@
   const handleresize = () => {
     // throttleresize()
     // debounceresize()
-    onresize()
+    onResize()
   }
 
   onMount(async () => {
@@ -89,8 +89,8 @@
 
     let pathname = window.location.pathname
 
-    onscroll()
-    onresize()
+    onScroll()
+    onResize()
   })
 
   // console.log($page, 'test', pageSegment)
