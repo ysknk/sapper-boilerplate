@@ -13,6 +13,7 @@
   const { page } = stores()
 
   import { state as info } from '../store/info'
+  import { rootpath } from '../client.config'
 
   export let segment: string
 
@@ -79,6 +80,13 @@
   onMount(async () => {
     console.log(`env: ${process.env.SAPPER_APP_ENV}`)
     console.log(`api: ${process.env.SAPPER_APP_TEST_API}`)
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register(`${rootpath}/service-worker.js`)
+      // navigator.serviceWorker.ready.then((registration) => {
+      //   console.log(registration)
+      // })
+    }
 
     const html = document.documentElement
     if (isTouch()) {
