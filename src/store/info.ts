@@ -12,6 +12,7 @@ const createStore = () => {
 
   return {
     subscribe,
+    set,
     update,
 
     reset: () => {
