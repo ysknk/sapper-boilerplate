@@ -1,6 +1,7 @@
 <script lang="ts">
   import successkid from 'images/successkid.jpg'
   import Image from '../components/atoms/Image.svelte'
+  import SEO from '../components/atoms/SEO.svelte'
 </script>
 
 <style lang="stylus">
@@ -33,9 +34,7 @@
 </style>
 
 <template lang="pug">
-  svelte:head
-    title
-      | Sapper project template
+  SEO(title="Sapper project template")
 
   h1
     | Great success!
