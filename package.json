@@ -3,16 +3,20 @@
   "description": "app",
   "version": "0.0.1",
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build --legacy",
+    "dev": "npm run init && sapper dev",
+    "_build": "sapper build --legacy",
     "_export": "sapper export --legacy",
-    "export": "node sapper.export.mjs",
-    "export:preview": "cross-env NODE_ENV=preview node sapper.export.mjs",
-    "export:production": "cross-env NODE_ENV=production node sapper.export.mjs",
+    "export": "npm run export:production",
+    "export:develop": "npm run init && cross-env NODE_ENV=develop node sapper.export.mjs",
+    "export:preview": "npm run init && cross-env NODE_ENV=preview node sapper.export.mjs",
+    "export:production": "npm run init && cross-env NODE_ENV=production node sapper.export.mjs",
     "help": "sapper export --help",
     "generate": "npm run export",
     "start": "node __sapper__/build",
-    "validate": "svelte-check --ignore src/node_modules/@sapper"
+    "validate": "svelte-check --ignore src/node_modules/@sapper",
+    "init": "npm run minify:init",
+    "minify:init": "cp ./minify_html.js node_modules/sapper/dist/",
+    "postinstall": "npm run minify:init"
   },
   "dependencies": {
     "compression": "^1.7.1",
