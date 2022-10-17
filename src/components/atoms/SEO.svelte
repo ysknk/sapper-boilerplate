@@ -33,5 +33,5 @@
     +each("Object.entries(og) as [key, value]")
       meta(property!="og:{key}" content!="{value}")
     +each("Object.entries(twitter) as [key, value]")
-      meta(name!="twitter:${key}card" content!="{value}")
+      meta(name!="twitter:{key}" content!="{value}")
 </template>
