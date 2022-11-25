@@ -20,7 +20,6 @@ import { rootpath, mode, dev, legacy } from './svelte.config.mjs'
 console.log(`MODE: 【${mode}】`)
 
 const preprocess = [
-  svelteImage({}),
   sveltePreprocess({
     sourceMap: dev,
 
@@ -41,6 +40,7 @@ const preprocess = [
       use: [nib()]
     }
   }),
+  svelteImage({}),
 ]
 
 const onwarn = (warning, onwarn) => {
