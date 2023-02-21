@@ -8,6 +8,7 @@
   const baseOG = {
     title,
     description,
+    url,
     image: `${url}images/common/og_image_1.png`,
     type: 'article',
     site_name: title
